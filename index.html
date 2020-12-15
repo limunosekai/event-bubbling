@@ -39,8 +39,20 @@
         background: coral;
       }
     </style>
-
     <button></button>
-    <script></script>
+    <script>
+      const divs = document.querySelectorAll('div');
+
+      function logText(e){
+        console.log(this.classList.value);
+        //e.stopPropagation();     //묶음 선택을 해제해줌
+      }
+
+      divs.forEach(div => div.addEventListener('click', logText, {
+        capture: false,  //true일경우 묶음으로 선택
+        //once: true     이벤트를 한 번만 실행하게 한다
+      }));
+
+    </script>
   </body>
 </html>
